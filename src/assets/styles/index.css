@@ -1,0 +1,4 @@
+@layer reset, base;
+
+@import 'modern-normalize' layer(reset);
+@import './base.css' layer(base);
