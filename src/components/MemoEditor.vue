@@ -3,7 +3,7 @@ import type { OnMessageEvent } from '@/workers/html-2-markdown'
 import MemoPreview from './MemoPreview.vue'
 import MemoTextarea from './MemoTextarea.vue'
 import { html2MarkdownWorker } from '@/workers'
-import { onBeforeUnmount, ref, watch } from 'vue'
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 const markdownContent = ref('')
 const htmlContent = ref('')
@@ -16,10 +16,12 @@ function onWorkerMessage(event: OnMessageEvent) {
   htmlContent.value = event.data
 }
 
-html2MarkdownWorker.addEventListener('message', onWorkerMessage)
+onMounted(() => {
+  html2MarkdownWorker.addEventListener('message', onWorkerMessage)
+})
 
 onBeforeUnmount(() => {
-  html2MarkdownWorker.terminate()
+  html2MarkdownWorker.removeEventListener('message', onWorkerMessage)
 })
 </script>
 
