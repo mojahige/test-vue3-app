@@ -1,9 +1,21 @@
 <script setup lang="ts">
-const model = defineModel<string>({ required: true })
+const emit = defineEmits<{
+  (e: 'input', value: string): void
+}>()
+
+function emitInput(event: Event) {
+  const { target } = event
+
+  if (!(target instanceof HTMLTextAreaElement)) {
+    return
+  }
+
+  emit('input', target.value)
+}
 </script>
 
 <template>
-  <textarea v-model="model" />
+  <textarea @input="emitInput" />
 </template>
 
 <style scoped>

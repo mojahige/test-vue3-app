@@ -16,6 +16,10 @@ function onWorkerMessage(event: OnMessageEvent) {
   htmlContent.value = event.data
 }
 
+function onInput(value: string) {
+  markdownContent.value = value
+}
+
 onMounted(() => {
   html2MarkdownWorker.addEventListener('message', onWorkerMessage)
 })
@@ -28,7 +32,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="MemoEditor">
     <div>
-      <MemoEditorTextarea v-model="markdownContent" />
+      <MemoEditorTextarea @input="onInput" />
     </div>
     <hr />
     <div>
