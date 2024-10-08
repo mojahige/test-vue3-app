@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { OnMessageEvent } from '@/workers/html-2-markdown'
-import MemoPreview from './MemoPreview.vue'
-import MemoTextarea from './MemoTextarea.vue'
+import MemoEditorPreview from './MemoEditorPreview.vue'
+import MemoEditorTextarea from './MemoEditorTextarea.vue'
 import { html2MarkdownWorker } from '@/workers'
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
@@ -28,11 +28,11 @@ onBeforeUnmount(() => {
 <template>
   <div class="MemoEditor">
     <div>
-      <MemoTextarea v-model="markdownContent" />
+      <MemoEditorTextarea v-model="markdownContent" />
     </div>
     <hr />
     <div>
-      <MemoPreview :content="htmlContent" />
+      <MemoEditorPreview :content="htmlContent" />
     </div>
   </div>
 </template>
