@@ -1,9 +1,15 @@
 <script setup lang="ts">
-import MemoEditor from './components/MemoEditor.vue'
+import { RouterView, RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <MemoEditor />
+  <h1>Test app</h1>
+  <nav>
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/memo">Memo</RouterLink>
+  </nav>
+  <hr />
+  <RouterView />
 </template>
 
 <style scoped></style>

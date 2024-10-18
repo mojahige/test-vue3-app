@@ -26,5 +26,12 @@ export default [
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': 'error'
     }
+  },
+  {
+    name: 'file based routing',
+    files: ['src/pages/*.vue'],
+    rules: {
+      'vue/multi-word-component-names': 'off'
+    }
   }
 ]
