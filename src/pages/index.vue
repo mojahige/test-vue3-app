@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import HomePage from '@/components/pages/home/HomePage.vue'
+</script>
+
 <template>
-  <h1>Index</h1>
+  <HomePage />
 </template>
