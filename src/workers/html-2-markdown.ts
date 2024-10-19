@@ -1,4 +1,4 @@
-import { renderer } from '@/markdown'
+import { renderer } from '@/libs/markdown'
 
 export type OnMessageEvent = MessageEvent<string>
 
